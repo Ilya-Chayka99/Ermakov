@@ -1,8 +1,8 @@
 package src.Department;
 
 public class Employee {
-    public String name;
-    public Department department;
+    private String name;
+    private Department department;
 
     public Employee(String name, Department department) {
         this.name = name;
@@ -10,10 +10,18 @@ public class Employee {
         department.addEmployee(this);
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
     @Override
     public String toString() {
-        if(this==department.boss) return name + " начальник отдела " + department.name;
-        return name + " работает в отделе " + department.name + ", начальник: " + department.boss.name;
+        if(this==department.getBoss()) return name + " начальник отдела " + department.getName();
+        return name + " работает в отделе " + department.getName() + ", начальник: " + department.getBoss().getName();
     }
 
 

@@ -69,7 +69,8 @@ public class Start {
 //        System.out.println(city1);
 //        city1.removeWay(city1);
 //        System.out.println(city1);
-        System.out.printf("111");
+//        System.out.printf("111");
+        
 
     }
 }
