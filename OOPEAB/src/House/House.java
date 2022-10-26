@@ -11,9 +11,7 @@ public class House {
     public int getFloor() {
         return floor;
     }
-    public void hhhr(House house){
-        System.out.println(house.floor);
-    }
+
     @Override
     public String toString() {
         return "Дом с "+floor+" этаж"+ ((floor%10==1&&floor!=11)?"ом":"ами");

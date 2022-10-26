@@ -8,9 +8,8 @@ public class Square {
     private int length;
 
     public Square(Point point, int length) throws Exception {
-        if(length<=0) throw new Exception("Длинна стороны не может быть отрицательной и равной нулю");
+        this.setL(length);
         this.point = point;
-        this.length = length;
     }
     public Square(int x, int y,int length) throws Exception {
         this(new Point(x,y),length);
@@ -27,10 +26,12 @@ public class Square {
     public void setPoint(Point point) {
         this.point = point;
     }
-
-    public void setLength(int length) throws Exception {
+    private void setL(int length) throws Exception {
         if(length<=0) throw new Exception("Длинна стороны не может быть отрицательной и равной нулю");
-        this.length = length;
+        this.length=length;
+    }
+    public void setLength(int length) throws Exception {
+        this.setL(length);
     }
 
     public int getLength() {

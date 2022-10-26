@@ -12,21 +12,25 @@ public class City {
         this.name = name;
     }
 
-    public City(String name,List<Way> way) {
-
-
+    public City(String name,List<Way> way) throws Exception {
+        for(Way w:way)
+        {
+            this.add(w);
+        }
         this.name = name;
-        this.ways.addAll(way);
     }
-
 
     public void addWay(City city, int price) throws Exception {
         Way way = new Way(city,price);
         this.addWay(way);
     }
     public void addWay(Way way) throws Exception {
+      this.add(way);
+    }
+    private void add(Way way) throws Exception {
         for(Way s:ways){
-            if(s.getLastCity().equals(way.getLastCity())) throw new Exception("Путь неможет дублироваться");
+            if(s.getLastCity()==way.getLastCity())  s=way;
+            return;
         }
         ways.add(way);
     }
