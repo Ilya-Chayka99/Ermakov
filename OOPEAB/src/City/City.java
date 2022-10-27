@@ -12,6 +12,7 @@ public class City {
         this.name = name;
     }
 
+
     public City(String name,List<Way> way) throws Exception {
         for(Way w:way)
         {
