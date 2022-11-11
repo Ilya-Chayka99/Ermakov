@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PoliLine {
-    public List<Point> points =new ArrayList<>();
+    private List<Point> points =new ArrayList<>();
 
     public PoliLine(Point...arr) {
         for(Point p:arr)
@@ -26,11 +26,17 @@ public class PoliLine {
             points.add(p);
         }
     }
+    public Point getPoint(int i){
+        return points.get(i);
+    }
+    public Point getLastPoint(){
+        return points.get(points.size());
+    }
     public void addPoliLinePoint(List arr){
        points.addAll(arr);
     }
-    public int lengthPoliLine(){
-        int size=0;
+    public double lengthPoliLine(){
+        double size=0;
         for(int i=0;i<points.size()-1;i++)
         {
             size+=new Line(points.get(i),points.get(i+1)).longLine();

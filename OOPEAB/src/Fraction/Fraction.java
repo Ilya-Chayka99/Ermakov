@@ -1,7 +1,7 @@
 package src.Fraction;
 
 
-public class Fraction {
+public final class Fraction {
 	private final int numerator,denominator;
 
 	public Fraction(int numerator, int denominator) throws Exception {

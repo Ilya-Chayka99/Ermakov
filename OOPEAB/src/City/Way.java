@@ -9,6 +9,10 @@ public class Way {
         this.price = price;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public City getLastCity() {
         return lastCity;
     }

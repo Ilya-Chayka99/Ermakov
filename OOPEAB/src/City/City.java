@@ -29,7 +29,7 @@ public class City {
     public void addWay(Way way) throws Exception {
       this.add(way);
     }
-    private void add(Way way) throws Exception {
+    void add(Way way) throws Exception {
         for(Way s:ways){
             if(s.getLastCity()==way.getLastCity())  s=way;
             return;
