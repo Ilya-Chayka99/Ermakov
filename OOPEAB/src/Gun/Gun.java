@@ -1,54 +1,29 @@
 package src.Gun;
 
-public class Gun {
-    private int cartridges;
-    final int maxCartridges;
+public class Gun extends Weapon{
 
-    public Gun(int cartridges) {
-        this(cartridges,cartridges);
+
+    public Gun(int ammo) {
+        super(ammo);
     }
-    public Gun(int cartridges,int maxCartridges) {
-        this.cartridges = cartridges;
-        this.maxCartridges = maxCartridges;
+
+    public Gun(int ammo, int maxCartridges) {
+        super(ammo, maxCartridges);
     }
-    public Gun()
+
+    public Gun() {
+        super();
+    }
+
+    @Override
+    public void shoot()
     {
-        this(5);
-    }
-    public void shot()
-    {
-        if(cartridges>0) {
+        if(getCartridges()>0) {
             System.out.println("Бах");
-            cartridges--;
+           setCartridges(getCartridges()-1);
         }else{
             System.out.println("Клац");
         }
     }
-    public int load(int ammo) throws Exception {
-        if(ammo<0) throw new Exception();
-        if(ammo>maxCartridges-cartridges) {
-            ammo=maxCartridges-cartridges;
-            cartridges=maxCartridges;
-            return ammo;
-        }
-        cartridges+=ammo;
-        return ammo;
-    }
-    public int unload(){
-        int ammo=cartridges;
-        cartridges=0;
-        return ammo;
-    }
-    public int getMaxCartridges() {
-        return maxCartridges;
-    }
 
-    public int getCartridges() {
-        return cartridges;
-    }
-    public boolean isload()
-    {
-        if(cartridges>0) return true;
-        return false;
-    }
 }

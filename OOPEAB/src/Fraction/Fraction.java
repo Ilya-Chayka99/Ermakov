@@ -1,7 +1,7 @@
 package src.Fraction;
 
 
-public final class Fraction {
+public final class Fraction extends Number{
 	private final int numerator,denominator;
 
 	public Fraction(int numerator, int denominator) throws Exception {
@@ -40,6 +40,27 @@ public final class Fraction {
 
 		return this.multiplay(new Fraction(d2,1));
 	}
+
+	@Override
+	public int intValue() {
+		return (int) (numerator/denominator);
+	}
+
+	@Override
+	public long longValue() {
+		return (long) (numerator/denominator);
+	}
+
+	@Override
+	public float floatValue() {
+		return (float) (numerator/denominator);
+	}
+
+	@Override
+	public double doubleValue() {
+		return (double) (numerator/denominator);
+	}
+
 	@Override
 	public String toString() {
 

@@ -1,3 +1,4 @@
+import src.Bird.Popygai;
 import src.City.CitiObr;
 import src.City.Way;
 
@@ -16,11 +17,11 @@ public class Start {
 //        st1.addWay(a2);
 //        st1.addWay(a1);
 //        st3.addWay(a3);
-//
 //        System.out.println(st1);
 //        System.out.println(st2);
 //        System.out.println(st3);
-
+//        Popygai p = new Popygai("Илья привет");
+//        p.song();
 
     }
 
