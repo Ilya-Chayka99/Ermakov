@@ -12,8 +12,15 @@ public class CitiObr extends City{
     }
 
     @Override
-    public void add(Way way) throws Exception {
-        super.add(way);
-        way.getLastCity().add(new Way(this,way.getPrice()));
+    public void addWay(Way way) throws Exception {
+        super.addWay(way);
+        for (Way w:way.getLastCity().ways) {
+            if(this.equal(w.getLastCity()))
+            {
+                w.setPrice(way.getPrice());
+                return;
+            }
+        }
+        way.getLastCity().addWay(new Way(this,way.getPrice()));
     }
 }

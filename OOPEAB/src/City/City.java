@@ -7,7 +7,7 @@ import java.util.Objects;
 
 public class City {
     private String name;
-    private List<Way> ways =new ArrayList<>();
+     List<Way> ways =new ArrayList<>();
 
     public City(String name) {
         this.name = name;
@@ -29,12 +29,16 @@ public class City {
     public void addWay(Way way) throws Exception {
       this.add(way);
     }
-    void add(Way way) throws Exception {
+    private void add(Way way) throws Exception {
         for(Way s:ways){
-            if(s.getLastCity()==way.getLastCity())  s=way;
-            return;
+            if(s.getLastCity().equal(way.getLastCity())) {
+                s.setPrice(way.getPrice());
+                return;
+            }
+
         }
-        ways.add(way);
+       ways.add(way);
+
     }
     public void removeWay(City city){
         for(int i =0;i< ways.size();i++){
@@ -49,12 +53,10 @@ public class City {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return name.equals(city.name) && ways.equals(city.ways);
+
+    public boolean equal(City o) {
+        if (this.name.equals(o.name)) return true;
+        return false;
     }
 
     @Override

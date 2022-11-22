@@ -30,7 +30,7 @@ public class PoliLine {
         return points.get(i);
     }
     public Point getLastPoint(){
-        return points.get(points.size());
+        return points.get(points.size()-1);
     }
     public void addPoliLinePoint(List arr){
        points.addAll(arr);
