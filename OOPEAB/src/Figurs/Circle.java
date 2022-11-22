@@ -13,6 +13,6 @@ public class Circle extends Figure{
 
     @Override
     double sqare() {
-        return 2*PI*r;
+        return PI*r*r;
     }
 }
