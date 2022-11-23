@@ -6,7 +6,6 @@ abstract class Bird {
     public Bird(String text) {
         this.text = text;
     }
-    public Bird(){
-    }
+
     abstract public void song();
 }

@@ -4,12 +4,13 @@ import src.Point.Point;
 import src.PoliLine.PoliLine;
 
 public class Square extends Figure{
-    private Point point;
+
     private int length;
 
     public Square(Point point, int length) throws Exception {
+        super(point);
         this.setL(length);
-        this.point = point;
+
     }
     public Square(int x, int y,int length) throws Exception {
         this(new Point(x,y),length);

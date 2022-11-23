@@ -1,11 +1,21 @@
 import src.Bird.Popygai;
 import src.City.CitiObr;
 import src.City.Way;
+import src.Point.PointStats;
 
 import java.util.zip.CheckedInputStream;
 
 public class Start {
     public static void main(String[]args) throws Exception {
+
+
+
+
+
+
+
+
+
 //        CitiObr st1 = new CitiObr("A");
 //        CitiObr st2 = new CitiObr("B");
 //        CitiObr st3= new CitiObr("C");
@@ -22,6 +32,10 @@ public class Start {
 //        System.out.println(st3);
 //        Popygai p = new Popygai("Илья привет");
 //        p.song();
+//        PointStats pointStats =new PointStats();
+//        pointStats.add("Цвет","Зеленый");
+//        pointStats.add("X","3");
+//        System.out.println(pointStats);
 
     }
 

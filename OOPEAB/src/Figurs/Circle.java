@@ -3,11 +3,10 @@ import src.Point.Point;
 
 import static java.lang.Math.*;
 public class Circle extends Figure{
-    Point p;
     double r;
 
     public Circle(Point p, double r) {
-        this.p = p;
+        super(p);
         this.r = r;
     }
 
