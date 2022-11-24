@@ -21,7 +21,7 @@ public class GunAvtomat extends Weapon{
     }
 
     public void shoot(int n) {
-        for (int i=0;i<n;i++)
+        for (int i=0;i<n*speed;i++)
         {
             if(getCartridges()>0) {
                 System.out.println("Бах");

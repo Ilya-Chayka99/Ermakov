@@ -1,8 +1,10 @@
 package src.Figurs;
 
 import src.Point.Point;
+import src.PoliLine.Cirkyle;
+import src.PoliLine.PoliLine;
 
-public class Rectangle extends Figure{
+public class Rectangle extends Figure implements PoliLineable{
     int lenghtA;
     int lenghtB;
 
@@ -15,7 +17,15 @@ public class Rectangle extends Figure{
         return lenghtA==lenghtB;
     }
     @Override
-    double sqare() {
+    public double sqare() {
         return lenghtA*lenghtB;
+    }
+
+    @Override
+    public PoliLine newPoliLine() {
+        return new PoliLine(point,
+                new Point(point.x+lenghtA, point.y),
+                new Point(point.x+lenghtA, point.y-lenghtB),
+                new Point(point.x, point.y-lenghtB));
     }
 }

@@ -1,41 +1,47 @@
-import src.Bird.Popygai;
 import src.City.CitiObr;
+import src.City.City;
 import src.City.Way;
-import src.Point.PointStats;
+import src.Gun.Gun;
+import src.Gun.GunAvtomat;
+import src.Shooter.Shooter;
 
-import java.util.zip.CheckedInputStream;
 
 public class Start {
     public static void main(String[]args) throws Exception {
 
-
-
-
-
-
-
-
-
-//        CitiObr st1 = new CitiObr("A");
-//        CitiObr st2 = new CitiObr("B");
-//        CitiObr st3= new CitiObr("C");
-//        Way a = new Way(st2,3);
-//        Way a1 = new Way(st2,6);
-//        Way a2 = new Way(st3,66);
-//        Way a3 = new Way(st1,4);
-//        st1.addWay(a);
-//        st1.addWay(a2);
-//        st1.addWay(a1);
-//        st3.addWay(a3);
-//        System.out.println(st1);
-//        System.out.println(st2);
-//        System.out.println(st3);
-//        Popygai p = new Popygai("Илья привет");
-//        p.song();
-//        PointStats pointStats =new PointStats();
-//        pointStats.add("Цвет","Зеленый");
-//        pointStats.add("X","3");
-//        System.out.println(pointStats);
+//        System.out.println(MyUtilits.sum(2,new Fraction(3,5),2.3));
+//        Kykychka k = new Kykychka();
+//        Vorobei b = new Vorobei();
+//        MyUtilits.birdMarket(k,b,k,k,b);
+//        Square s=new Square(1,1,2);
+//        Point p = new Point(1,1);
+//        Rectangle r=new Rectangle(p,2,2);
+//        System.out.println(MyUtilits.squaresFigures(s,r,s));
+//        Cat cat = new Cat("asss");
+//        Cat cat1 = new Cat("asssq");
+//        Cat cat2 = new Cat("asssw");
+//        MyUtilits.Meowing(cat,cat2,cat1);
+//        Line l = new Line(0,0,4,0);
+//        Point p1 = new Point(0,0);
+//        Point p2 = new Point(8,0);
+//        Point p3 = new Point(8,6);
+//        Point p4 = new Point(7,6);
+//        PoliLine p = new PoliLine(p1,p2,p3,p4);
+//        System.out.println(MyUtilits.longLines(l,p));
+//        City c = new City("C");
+//        City b = new City("B");
+//        City e = new City("E");
+//        CitiObr a = new CitiObr("A");
+//        CitiObr d = new CitiObr("D");
+//
+//        a.addWay(new Way(c,2));
+//        a.addWay(new Way(b,1));
+//        d.addWay(new Way(b,4));
+//        b.addWay(new Way(c,10));
+//        e.addWay(new Way(d,7));
+//        e.addWay(new Way(c,6));
+//        d.addWay(new Way(e,3));
+//        System.out.println(c+ " "+a+" "+b+" "+d+" "+e);
 
     }
 

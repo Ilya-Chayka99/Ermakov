@@ -1,12 +1,13 @@
 package src.PoliLine;
 
 import src.Line.Line;
+import src.Line.Longable;
 import src.Point.Point;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PoliLine {
+public class PoliLine implements Longable {
     private List<Point> points =new ArrayList<>();
 
     public PoliLine(Point...arr) {
@@ -29,13 +30,16 @@ public class PoliLine {
     public Point getPoint(int i){
         return points.get(i);
     }
+    public List<Point> getPoliLine(){
+        return new ArrayList<>(points);
+    }
     public Point getLastPoint(){
         return points.get(points.size()-1);
     }
     public void addPoliLinePoint(List arr){
        points.addAll(arr);
     }
-    public double lengthPoliLine(){
+    public double longLine(){
         double size=0;
         for(int i=0;i<points.size()-1;i++)
         {

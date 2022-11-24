@@ -1,10 +1,8 @@
 package src.Cat;
 
-public class Cat {
-    String name;
-
+public class Cat extends Cats{
     public Cat(String name) {
-        this.name = name;
+        super(name);
     }
     public void meow(int n){
         String str="";

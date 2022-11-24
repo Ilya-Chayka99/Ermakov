@@ -7,6 +7,7 @@ import java.util.List;
 public class Cirkyle extends PoliLine {
     public Cirkyle(Point... arr) {
         super(arr);
+        this.addPoliLinePoint(arr[0]);
     }
 
     public Cirkyle(List arr) {
@@ -16,7 +17,7 @@ public class Cirkyle extends PoliLine {
     public Cirkyle() {
     }
     @Override
-    public double lengthPoliLine(){
-        return super.lengthPoliLine()+Math.hypot(getLastPoint().x-getPoint(0).x,getLastPoint().y-getPoint(0).y);
+    public double longLine(){
+        return super.longLine()+Math.hypot(getLastPoint().x-getPoint(0).x,getLastPoint().y-getPoint(0).y);
     }
 }

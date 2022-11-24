@@ -1,20 +1,20 @@
 package src.Gun;
 
-abstract class Weapon {
+public abstract class Weapon {
     private int cartridges;
     private final int maxCartridges;
     public Weapon(int ammo){
         this(ammo,ammo);
     }
     public Weapon(int ammo,int maxCartridges){
-        if(ammo<0 || maxCartridges>=ammo) throw  new RuntimeException();
-        cartridges=ammo;
+        if(ammo<0 || maxCartridges<ammo) throw  new RuntimeException();
+        this.cartridges=ammo;
         this.maxCartridges=maxCartridges;
     }
     public Weapon(){
         this(5,10);
     }
-    abstract void shoot();
+    public abstract void shoot();
     public int getCartridges(){return cartridges;}
     public int getMaxCartridges(){return maxCartridges;}
 

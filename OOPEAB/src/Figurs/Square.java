@@ -1,6 +1,7 @@
 package src.Figurs;
 
 import src.Point.Point;
+import src.PoliLine.Cirkyle;
 import src.PoliLine.PoliLine;
 
 public class Square extends Figure{
@@ -45,7 +46,7 @@ public class Square extends Figure{
     }
 
     @Override
-    double sqare() {
+    public double sqare() {
         return (double) length*length;
     }
 }

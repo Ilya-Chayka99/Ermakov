@@ -2,12 +2,12 @@ package src.Figurs;
 
 import src.Point.Point;
 
-abstract class Figure {
+public abstract class Figure{
     Point point;
 
     public Figure(Point point) {
         this.point = point;
     }
 
-    abstract double sqare();
+    public abstract double sqare();
 }

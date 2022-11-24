@@ -1,10 +1,12 @@
 package src.Figurs;
 
 import src.Point.Point;
+import src.PoliLine.Cirkyle;
+import src.PoliLine.PoliLine;
 
 import static java.lang.Math.*;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure implements PoliLineable{
     Point p2;
     Point p3;
 
@@ -15,7 +17,10 @@ public class Triangle extends Figure{
     }
 
     @Override
-    double sqare() {
+    public double sqare() {
         return (abs((p2.x-point.x)*(p3.y-point.y)-(p3.x-point.x)*(p2.y-point.y))/2d);
     }
+    @Override
+    public PoliLine newPoliLine() {
+        return new PoliLine(point,p2,p3);}
 }
