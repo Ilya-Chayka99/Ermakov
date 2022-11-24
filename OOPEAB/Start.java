@@ -43,6 +43,8 @@ public class Start {
 //        d.addWay(new Way(e,3));
 //        System.out.println(c+ " "+a+" "+b+" "+d+" "+e);
 
+
+
     }
 
 }

@@ -2,7 +2,7 @@ package src.Shooter;
 
 import src.Gun.Weapon;
 
-public class Shooter {
+public class Shooter{
     public String name;
     public Weapon p ;
 

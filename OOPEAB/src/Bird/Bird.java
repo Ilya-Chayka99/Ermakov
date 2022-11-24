@@ -1,6 +1,6 @@
 package src.Bird;
 
-public abstract class Bird {
+public abstract class Bird implements Songable {
     String text;
 
     public Bird(String text) {
