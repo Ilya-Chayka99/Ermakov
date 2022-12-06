@@ -12,13 +12,13 @@ public final class Converter {
     }
     public void read(){
         this.read.read();
-    }
-    public void wtite(String st){
+    } //тоже файл
+    public void write(String st){
         if(this.read.read()) this.write.write(st);
     }
     public void change(String st){
         if(this.read.read()) {
-            this.change.chang(st);
+            if(this.change.chang(st)) this.write.write();
         }
     }
 }
