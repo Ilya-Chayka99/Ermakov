@@ -68,4 +68,13 @@ public class City {
     public String toString() {
         return "City:" + "" + name + ", ways=" + ways;
     }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) return true;
+        if (o == null || !(o instanceof City)) return false;
+        City city = (City) o;
+        return Objects.equals(name, city.name) && Objects.equals(ways, city.ways);
+    }
 }

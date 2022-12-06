@@ -4,6 +4,8 @@ import src.Figurs.PoliLineable;
 import src.Point.Point;
 import src.PoliLine.PoliLine;
 
+import java.util.Objects;
+
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
@@ -49,5 +51,18 @@ public class Line implements Longable, PoliLineable {
     @Override
     public String toString() {
         return "Линия от " + point1 +" до " + point2;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(point1, line.point1) && Objects.equals(point2, line.point2);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(point1, point2);
     }
 }

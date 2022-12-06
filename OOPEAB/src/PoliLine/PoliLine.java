@@ -6,6 +6,7 @@ import src.Point.Point;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PoliLine implements Longable {
     private List<Point> points =new ArrayList<>();
@@ -51,5 +52,18 @@ public class PoliLine implements Longable {
     @Override
     public String toString() {
         return "Линия "+points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PoliLine poliLine = (PoliLine) o;
+        return Objects.equals(points, poliLine.points);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(points);
     }
 }

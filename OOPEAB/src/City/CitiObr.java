@@ -1,6 +1,7 @@
 package src.City;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CitiObr extends City{
     public CitiObr(String name) {
@@ -23,4 +24,7 @@ public class CitiObr extends City{
         }
         way.getLastCity().addWay(new Way(this,way.getPrice()));
     }
+
+
+
 }
