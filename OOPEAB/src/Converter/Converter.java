@@ -5,7 +5,7 @@ public final class Converter {
     private Writeable write;
     private Changable change;
 
-    public Converter(Readable read, Writeable write, Changable change) {
+    public Converter(Readable read, Writeable write, Changable change) {// ну и какой-то файл навернго для этого=)
         this.read = read;
         this.write = write;
         this.change = change;
@@ -17,6 +17,8 @@ public final class Converter {
         if(this.read.read()) this.write.write(st);
     }
     public void change(String st){
-        if(this.read.read()) this.change.chang(st);
+        if(this.read.read()) {
+            this.change.chang(st);
+        }
     }
 }
