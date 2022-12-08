@@ -11,16 +11,18 @@ public class Stydent<T> {
     RuleSudent<T> ruleSudent;
     private List<T> rate = new ArrayList<>();
 
-    public Stydent(String name,Ruleable<T> a,RuleSudent<T> ru, T... arr) throws Exception {
+    public Stydent(String name,Ruleable<T> a, T... arr) throws Exception {
         this.name = name;
-        if(a==null||ru==null) throw new Exception();
+        if(a==null) throw new Exception();
         this.rule=a;
-        this.ruleSudent=ru;
         for(T ar:arr)
         {
             if(this.rule.rule( ar)) throw new Exception();
             rate.add(ar);
         }
+    }
+    public void setRuleSudent(RuleSudent<T> ru){
+        this.ruleSudent=ru;
     }
     public T mediumRate() {
         return ruleSudent.getMediumRate(rate);

@@ -10,6 +10,9 @@ import src.PoliLine.PoliLine;
 
 import java.util.List;
 
+import static java.lang.Math.*;
+import static java.lang.Integer.*;
+
 public class MyUtilits {
 
     public static double sum(Number... ar){
@@ -51,5 +54,9 @@ public class MyUtilits {
         }
         return poliLine;
     }
+    public static Double powString(String x,String y){
+        return pow(parseInt(x),parseInt(y));
+    }
+
 
 }
