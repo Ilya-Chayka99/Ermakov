@@ -3,37 +3,33 @@ package src.Stydent;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stydent {
-    private String name;
-    private List<Integer> rate = new ArrayList<>();
 
-    public Stydent(String name, Integer... arr) throws Exception {
+
+public class Stydent<T> {
+    private String name;
+    Ruleable<T> rule;
+    RuleSudent<T> ruleSudent;
+    private List<T> rate = new ArrayList<>();
+
+    public Stydent(String name,Ruleable<T> a,RuleSudent<T> ru, T... arr) throws Exception {
         this.name = name;
-        for(Integer ar:arr)
+        if(a==null||ru==null) throw new Exception();
+        this.rule=a;
+        this.ruleSudent=ru;
+        for(T ar:arr)
         {
-            if(ar>5||ar<2) throw new Exception();
+            if(this.rule.rule( ar)) throw new Exception();
             rate.add(ar);
         }
     }
-    public int mediumRate() {
-    	if(rate.size()==0) return 0;
-    	int mediumRate = 0;
-    	for(Integer i:rate)
-    	{
-    		mediumRate+=i;
-    	}
-    	return mediumRate/rate.size();
+    public T mediumRate() {
+        return ruleSudent.getMediumRate(rate);
     }
     public boolean otl() {
-    	if(rate.size()==0) return false;
-    	for(Integer i:rate)
-    	{
-    		if(i!=5) return false; 
-    	}
-    	return true;
+    	return ruleSudent.otl(rate);
     }
 
-    public List<Integer> getRate() {
+    public List<T> getRate() {
         return rate;
     }
 

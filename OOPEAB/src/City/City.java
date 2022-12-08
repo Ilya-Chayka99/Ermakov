@@ -75,6 +75,8 @@ public class City {
         if (this == o) return true;
         if (o == null || !(o instanceof City)) return false;
         City city = (City) o;
+//        for(int i=0; i<this.ways.size();i++)
+//            for(int )  метод контейн
         return Objects.equals(name, city.name) && Objects.equals(ways, city.ways);
     }
 }
