@@ -3,7 +3,7 @@ package src.Fraction;
 
 import java.util.Objects;
 
-public final class Fraction extends Number{
+public final class Fraction extends Number implements Cloneable{
 	private final int numerator,denominator;
 
 	public Fraction(int numerator, int denominator) throws Exception {
@@ -87,5 +87,10 @@ public final class Fraction extends Number{
 	@Override
 	public int hashCode() {
 		return Objects.hash(numerator, denominator);
+	}
+
+	@Override
+	protected Fraction clone() throws CloneNotSupportedException {
+		return (Fraction) super.clone();
 	}
 }

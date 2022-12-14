@@ -1,8 +1,7 @@
 package src.Figurs;
 
 import src.Point.Point;
-import src.PoliLine.Cirkyle;
-import src.PoliLine.PoliLine;
+import src.Line.PoliLine;
 
 import static java.lang.Math.*;
 

@@ -1,4 +1,4 @@
-package src.PoliLine;
+package src.Line;
 
 import src.Point.Point;
 

@@ -5,13 +5,10 @@ import src.Cat.Cats;
 import src.Figurs.Figure;
 import src.Figurs.PoliLineable;
 import src.Line.Longable;
-import src.Point.Point;
-import src.PoliLine.PoliLine;
-
-import java.util.List;
+import src.Line.PoliLine;
 
 import static java.lang.Math.*;
-import static java.lang.Integer.*;
+import static java.lang.Double.*;
 
 public class MyUtilits {
 
@@ -55,7 +52,7 @@ public class MyUtilits {
         return poliLine;
     }
     public static Double powString(String x,String y){
-        return pow(parseInt(x),parseInt(y));
+        return pow(parseDouble(x),parseDouble(y));
     }
 
 

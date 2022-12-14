@@ -1,6 +1,5 @@
 package src.Figurs;
 import src.Point.Point;
-import src.PoliLine.Cirkyle;
 
 import static java.lang.Math.*;
 public class Circle extends Figure{

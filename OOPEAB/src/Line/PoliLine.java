@@ -1,7 +1,5 @@
-package src.PoliLine;
+package src.Line;
 
-import src.Line.Line;
-import src.Line.Longable;
 import src.Point.Point;
 
 import java.util.ArrayList;

@@ -1,7 +1,6 @@
 package src.Figurs;
 
-import src.PoliLine.Cirkyle;
-import src.PoliLine.PoliLine;
+import src.Line.PoliLine;
 
 public interface PoliLineable {
      PoliLine newPoliLine();
