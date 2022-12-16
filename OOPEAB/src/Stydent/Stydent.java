@@ -1,15 +1,16 @@
 package src.Stydent;
 
+import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class Stydent<T> {
+public class Stydent<T> implements Coppiable {
     private String name;
-    Ruleable<T> rule;
-    RuleSudent<T> ruleSudent;
-    private List<T> rate = new ArrayList<>();
+    private final Ruleable<T> rule;
+    private  RuleSudent<T> ruleSudent;
+    protected List<T> rate = new ArrayList<>();
 
     public Stydent(String name,Ruleable<T> a, T... arr) throws Exception {
         this.name = name;
@@ -42,4 +43,19 @@ public class Stydent<T> {
                 ", rate=" + rate +
                 '}';
     }
+
+    @Override
+    public Stydent<T> clone()  {
+        try {
+            Stydent<T> a = (Stydent<T>) super.clone();
+            a.rate=new ArrayList<>(this.rate);
+            return a;
+        }
+        catch (Exception ex){
+            throw new RuntimeException(ex);
+        }
+
+    }
+
+
 }

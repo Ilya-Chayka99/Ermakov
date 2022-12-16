@@ -1,7 +1,7 @@
 package src.Gun;
 
 public abstract class Weapon {
-    private int cartridges;
+    protected int cartridges;
     private final int maxCartridges;
     public Weapon(int ammo){
         this(ammo,ammo);

@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Department {
    private String name;
-   private Employee boss;
-    public List<Employee> employees = new ArrayList<>();
+   protected Employee boss;
+    protected List<Employee> employees = new ArrayList<>();
     public Department(String name, Employee boss) {
         this.name = name;
         this.boss = boss;

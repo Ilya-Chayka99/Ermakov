@@ -2,14 +2,13 @@ package src.Line;
 
 import src.Figurs.PoliLineable;
 import src.Point.Point;
-import src.PoliLine.PoliLine;
 
 import java.util.Objects;
 
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class Line implements Longable, PoliLineable {
+public class Line implements Longable, PoliLineable,Cloneable{
     private Point point1,point2;
 
     public Line(Point point1, Point point2) {
@@ -64,5 +63,13 @@ public class Line implements Longable, PoliLineable {
     @Override
     public int hashCode() {
         return Objects.hash(point1, point2);
+    }
+
+    @Override
+    protected Line clone() throws CloneNotSupportedException {
+        Line a=(Line) super.clone();
+        a.point1=this.point1.clone();
+        a.point2=this.point2.clone();
+        return a;
     }
 }
