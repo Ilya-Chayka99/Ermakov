@@ -22,11 +22,19 @@ public class Stydent<T> implements Coppiable {
             rate.add(ar);
         }
     }
+    public Stydent(String name) throws Exception {
+        this(name,x->true);
+    }
     public void setRuleSudent(RuleSudent<T> ru){
         this.ruleSudent=ru;
     }
-    public T mediumRate() {
-        return ruleSudent.getMediumRate(rate);
+    public TDefault<T> mediumRate() {
+        if(rate.isEmpty()) return new TDefault<T>(null);
+        if(ruleSudent!=null) return new TDefault<T>( ruleSudent.getMediumRate(rate));
+        RuleStudentable<T> ru = (RuleStudentable<T>) rate.get(0);
+        List<T> tmp = new ArrayList<>(rate);
+        tmp.remove(0);
+        return new TDefault<T>(ru.mediumRate((T[])tmp.toArray()));
     }
     public boolean otl() {
     	return ruleSudent.otl(rate);

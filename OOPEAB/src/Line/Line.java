@@ -8,7 +8,7 @@ import java.util.Objects;
 import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
-public class Line implements Longable, PoliLineable,Cloneable{
+public class Line implements Longable, PoliLineable{
     private Point point1,point2;
 
     public Line(Point point1, Point point2) {
@@ -19,6 +19,10 @@ public class Line implements Longable, PoliLineable,Cloneable{
         this.point1 = new Point(x1,y1);
         this.point2 = new Point(x2,y2);
 
+    }
+    public Line(Line l) throws CloneNotSupportedException {
+        this.point1 = l.getPoint1().clone();
+        this.point2 = l.getPoint2().clone();
     }
     public double longLine(){
         return sqrt(pow(point1.x-point2.x,2)+pow(point1.y-point2.y,2));
@@ -38,6 +42,14 @@ public class Line implements Longable, PoliLineable,Cloneable{
     public void setPointEndCoord(int x,int y) {
         point2.x=x;
         point2.y=y;
+    }
+
+    public Point getPoint1() {
+        return new Point(point1.x,point1.y);
+    }
+
+    public Point getPoint2() {
+        return new Point(point2.x,point2.y);
     }
 
     public String getPointFirstCoord() {
@@ -65,11 +77,4 @@ public class Line implements Longable, PoliLineable,Cloneable{
         return Objects.hash(point1, point2);
     }
 
-    @Override
-    protected Line clone() throws CloneNotSupportedException {
-        Line a=(Line) super.clone();
-        a.point1=this.point1.clone();
-        a.point2=this.point2.clone();
-        return a;
-    }
 }
