@@ -3,6 +3,7 @@ package src.bloc6.Watchman1;
 public class Human {
     private RuleHuman<Human> rule;
     public Human() {
+        this(null);
     }
 
     public Human(RuleHuman<Human> rule) {
