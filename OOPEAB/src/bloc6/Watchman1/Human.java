@@ -5,7 +5,6 @@ public class Human {
     public Human() {
         this(null);
     }
-
     public Human(RuleHuman<Human> rule) {
         this.rule = rule;
     }

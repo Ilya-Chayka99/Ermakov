@@ -12,7 +12,6 @@ public final class Student extends Human{
     public Student(){
         this(null,null,null);
     }
-
     public void setRule(RuleHuman<Student> rule) {
         this.rule = rule;
     }
