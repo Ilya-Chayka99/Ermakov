@@ -1,6 +1,6 @@
 package src.Stydent;
 
-public interface RuleStudentable<T> {
+public interface Avegereable<T> {
     T mediumRate(T... t);
 
 }

@@ -1,6 +1,5 @@
 package src.Stydent;
 
-import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +8,7 @@ import java.util.List;
 public class Stydent<T> implements Coppiable {
     private String name;
     private final Ruleable<T> rule;
-    private  RuleSudent<T> ruleSudent;
+    private Avegerator<T> ruleSudent;
     protected List<T> rate = new ArrayList<>();
 
     public Stydent(String name,Ruleable<T> a, T... arr) throws Exception {
@@ -25,13 +24,13 @@ public class Stydent<T> implements Coppiable {
     public Stydent(String name) throws Exception {
         this(name,x->true);
     }
-    public void setRuleSudent(RuleSudent<T> ru){
+    public void setRuleSudent(Avegerator<T> ru){
         this.ruleSudent=ru;
     }
     public TDefault<T> mediumRate() {
         if(rate.isEmpty()) return new TDefault<T>(null);
         if(ruleSudent!=null) return new TDefault<T>( ruleSudent.getMediumRate(rate));
-        RuleStudentable<T> ru = (RuleStudentable<T>) rate.get(0);
+        Avegereable<T> ru = (Avegereable<T>) rate.get(0);
         List<T> tmp = new ArrayList<>(rate);
         tmp.remove(0);
         return new TDefault<T>(ru.mediumRate((T[])tmp.toArray()));

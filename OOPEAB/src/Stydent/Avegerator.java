@@ -2,7 +2,7 @@ package src.Stydent;
 
 import java.util.List;
 
-public interface RuleSudent<T> {
+public interface Avegerator<T> {
     boolean otl(List<T> a);
     T getMediumRate(List<T> a);
 
