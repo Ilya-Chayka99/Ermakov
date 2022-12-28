@@ -1,6 +1,7 @@
 package src.Line;
 
 import src.Figurs.PoliLineable;
+import src.Fraction.Fraction;
 import src.Point.Point;
 
 import java.util.Objects;
@@ -20,7 +21,7 @@ public class Line implements Longable, PoliLineable{
         this.point2 = new Point(x2,y2);
 
     }
-    public Line(Line l) throws CloneNotSupportedException {
+    public Line(Line l) {
         this.point1 = l.getPoint1().clone();
         this.point2 = l.getPoint2().clone();
     }
@@ -62,6 +63,19 @@ public class Line implements Longable, PoliLineable{
     @Override
     public String toString() {
         return "Линия от " + point1 +" до " + point2;
+    }
+
+    @Override
+    protected Line clone() {
+        try {
+            Line l = (Line)super.clone();
+            l.point1=point1.clone();
+            l.point2=point2.clone();
+            return l;
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override

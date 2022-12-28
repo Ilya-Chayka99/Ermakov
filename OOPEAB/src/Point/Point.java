@@ -1,5 +1,7 @@
 package src.Point;
 
+import src.Fraction.Fraction;
+
 import java.util.Objects;
 
 public class Point implements Cloneable {
@@ -29,7 +31,12 @@ public class Point implements Cloneable {
     }
 
     @Override
-    public Point clone() throws CloneNotSupportedException {
-        return (Point) super.clone();
+    public Point clone()  {
+        try {
+            return (Point) super.clone();
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
+
     }
 }

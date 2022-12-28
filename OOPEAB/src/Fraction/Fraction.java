@@ -90,7 +90,12 @@ public final class Fraction extends Number implements Cloneable{
 	}
 
 	@Override
-	protected Fraction clone() throws CloneNotSupportedException {
-		return (Fraction) super.clone();
+	protected Fraction clone()  {
+		try {
+			return (Fraction) super.clone();
+		}catch (Exception e){
+			throw new RuntimeException(e);
+		}
+
 	}
 }
