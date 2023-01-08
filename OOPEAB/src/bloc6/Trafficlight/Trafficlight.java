@@ -1,17 +1,17 @@
 package src.bloc6.Trafficlight;
 
 public class Trafficlight {
-    Colorable color;
+    Colors color;
 
-    public Trafficlight(Colorable color) {
+    public Trafficlight(Colors color) {
         this.color = color;
     }
 
-    public void setColor(Colorable color) {
+    public void setColor(Colors color) {
         this.color = color;
     }
 
-    void next(){
+    public void next(){
         System.out.println(color);
         this.color=color.next();
     }
