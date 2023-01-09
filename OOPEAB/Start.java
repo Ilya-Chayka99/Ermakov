@@ -10,7 +10,7 @@ import src.bloc6.Watchman2.*;
 import java.util.function.Predicate;
 
 public class Start {
-    public static void main(String[]args) throws Exception {
+        public static void main(String[]args) throws Exception {
 //        School sk = new School();
 //        Student s = new Student(sk,"Vasa");
 //        Parent p = new Parent("Vasa");
@@ -26,41 +26,16 @@ public class Start {
 //        s.addMarks(3,455);
 //        s.setName("Гандон");
 //        Predicate<Integer> rule = (a)->(a<4);
-
-        /*
-            таск менеджер
-            учитывать выполнение сотрудниками
-            кто назначил
-            кому
-            в чем действие
-            состояние задачи
-            принято
-            закончена
-            отклонена
-
-            задача может состоять из подзадач
-
-
-            задача завершенная если все подзадачи завершены
-
-            дополнение:
-            автоматические задачи
-
-         */
-
-        Zadacha z1=new Zadacha("Oleg","Vasa","Полил цветы");
-        Zadacha z2=new Zadacha("Oleg","Вика","Вынес мусор");
-        Zadacha z3=new Zadacha("Oleg","Андрей","Выпил кофе");
-        Zadacha z4=new Zadacha("Oleg","Саша","Выпил кофе",z3);
-        Zadacha z5=new Zadacha("Oleg","Антон","Выпил кофе");
-        Zadacha z6=new Zadacha("Oleg","SYSTEM","Вышел",z1,z2);
-
-
-//        z6.setCodeAuto(()->{return "Уляяя";});
-
-
-        z6.complited();
-        System.out.println(z6.getStatus());
+//            //exam
+//        Zadacha z1=new Zadacha("Oleg","Vasa","Полил цветы");
+//        Zadacha z2=new Zadacha("Oleg","Вика","Вынес мусор");
+//        Zadacha z3=new Zadacha("Oleg","Андрей","Выпил кофе");
+//        Zadacha z4=new Zadacha("Oleg","Саша","Выпил кофе",z3);
+//        Zadacha z5=new Zadacha("Oleg","Антон","Выпил кофе");
+//        Zadacha z6=new Zadacha("Oleg","SYSTEM","Вышел",z1,z2);
+////        z6.setCodeAuto(()->{return "Уляяя";});
+//        z6.complited();
+//        System.out.println(z6.getStatus());
 
 
     }
