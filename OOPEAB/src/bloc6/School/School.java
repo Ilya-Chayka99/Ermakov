@@ -26,7 +26,7 @@ public class School {
     public void notifyParents(Student s,String key,Integer... mar){
         for(Map.Entry<String,List<Parent>> e : observ.entrySet()){
             if(e.getKey()==key){
-                List<Parent> p= e.getValue();
+                List<Parent> p = e.getValue();
                 for(Parent g:p){
                     if(g.getStudents().contains(s)){
                         g.obs("Получил оценку(и)  " + Arrays.asList(mar));
