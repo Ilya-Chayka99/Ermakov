@@ -1,3 +1,5 @@
+import src.Abs;
+import src.Point.Point;
 import src.bloc6.Exam.Codeable;
 import src.bloc6.Exam.Zadacha;
 import src.bloc6.School.Parent;
@@ -37,7 +39,10 @@ public class Start {
 //        z6.complited();
 //        System.out.println(z6.getStatus());
 
-
+//            Abs a =new Abs();
+//            for(Point p :a){
+//                System.out.println(p);
+//            }
     }
 
 
