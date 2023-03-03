@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Abs {
-    public List<Point> a = new ArrayList<>();
-    public Abs() {
-        a.add(new Point(1,1));
-        a.add(new Point(1,3));
-        a.add(new Point(1,9));
+    final int x=5;
+    private Abs(int k) {
+        System.out.println(k);
+    }
+
+    @Override
+    public String toString() {
+        return "Abs{" +
+                "x=" + x +
+                '}';
     }
 }
