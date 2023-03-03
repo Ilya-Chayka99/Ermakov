@@ -45,8 +45,8 @@ public class Human {
 
     @Override
     public String toString() {
-        if(this.father==null)  return this.name.toString()+
-                ", рост=" + this.height;
+        if(this.father==null)  return "["+this.name.toString()+
+                ", рост=" + this.height+"]";
         if(this.name.getPatronymic().isEmpty())
             if(this.name.getSurname().isEmpty())
                 return this.name.toString()+" "+ this.father.name.getName()+"ович"+ " "+this.father.name.getSurname()+

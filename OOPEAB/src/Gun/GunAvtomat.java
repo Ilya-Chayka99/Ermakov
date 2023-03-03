@@ -2,6 +2,7 @@ package src.Gun;
 
 public class GunAvtomat extends Weapon{
     int speed;
+
     public GunAvtomat(int maxCartridges,int speed) {
         super(maxCartridges,maxCartridges);
         if(speed<1) throw new IllegalArgumentException();

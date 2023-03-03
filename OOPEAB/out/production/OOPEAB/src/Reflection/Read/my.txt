@@ -1,0 +1,4 @@
+src.Line.Line{point1=src.Point.Point{x=1,y=1},point2=src.Point.Point{x=8,y=8}}
+src.Line.Line{point1=src.Point.Point{x=1,y=1},point2=src.Point.Point{x=8,y=9}}
+src.Line.Line{point1=src.Point.Point{x=1,y=1},point2=src.Point.Point{x=33,y=8}}
+src.Human.Human{name=src.Name.Name{name="Vova"},height=400}

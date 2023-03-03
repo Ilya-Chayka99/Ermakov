@@ -45,6 +45,9 @@ public class Line implements Longable, PoliLineable{
         point2.y=y;
     }
 
+    public Line() {
+    }
+
     public Point getPoint1() {
         return new Point(point1.x,point1.y);
     }
