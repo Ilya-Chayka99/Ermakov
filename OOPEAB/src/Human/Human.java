@@ -2,7 +2,10 @@ package src.Human;
 
 
 import src.Name.Name;
+import src.Reflection.InspectObj.HumanTests;
+import src.Reflection.InspectObj.Tests;
 
+@Tests(HumanTests.class)
 public class Human {
    private Name name;
    private final Human father;

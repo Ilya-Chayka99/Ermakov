@@ -9,6 +9,7 @@ import src.Reflection.Entity.A;
 import src.Reflection.Entity.B;
 import src.Reflection.InspectObj.HumanTests;
 import src.Reflection.InspectObj.InspectObj;
+import src.Reflection.InspectObj.Tests;
 import src.Reflection.Read.ObjectsReader;
 import src.bloc6.Exam.Codeable;
 import src.bloc6.Exam.Zadacha;
@@ -47,7 +48,7 @@ public class Start {
 //7.1.1
 //            Abs a = new Abs();
 //            GunAvtomat b = new GunAvtomat();
-//            System.out.println(InspectObj.fieldCollection(a));
+//            System.out.println(InspectObj.fieldCollection(a).toString());
 //7.1.2
 //            Line line = new Line(1,1,5,5);
 //            Line line2 = new Line(1,1,9,9);
@@ -58,13 +59,14 @@ public class Start {
 //            B a = new B();
 //            System.out.println(a);
 //7.1.4
-//            Human h =new Human("Stiv",300);
-//            InspectObj.validate(h, HumanTests.class);
-//
-            ObjectsReader<Line> ob = new ObjectsReader<>("src/Reflection/Read/my.txt");
+
             Human h =new Human("Stiv",300);
-            Human h1 =new Human("Stiv",300);
-            System.out.println(ob.reader());
+            InspectObj.validate(h);
+//
+//            ObjectsReader<Line> ob = new ObjectsReader<>("src/Reflection/Read/my.txt");
+//            Human h =new Human("Stiv",300);
+//            Human h1 =new Human("Stiv",300);
+//            System.out.println(ob.reader());
 
 
 

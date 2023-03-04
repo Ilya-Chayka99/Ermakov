@@ -114,7 +114,7 @@ public class ObjectsReader<T> {
             Field field = Class.forName(name).getDeclaredField(na[0]);
             field.setAccessible(true);
             Class<?> t =transformPremetive(field.getType());
-            System.out.println(t);
+
             if (t!=Integer.class && t!=Byte.class && t!=Character.class && t!=Double.class
                     && t!=Float.class && t!=Long.class && t!=Short.class && t!=Boolean.class && t!=String.class) {
                 o.add(conv(n));
@@ -157,24 +157,22 @@ public class ObjectsReader<T> {
 
             for (Constructor<?> constructor : Class.forName(name).getDeclaredConstructors()) {
                 if (constructor.getParameterCount() != o.size()) continue;
-                boolean good = true;
+                boolean Flag = true;
                 for (int i = 0; i < constructor.getParameters().length; i++) {
                     Parameter parameter = constructor.getParameters()[i];
                     if (o.get(i).getClass() != transformPremetive(parameter.getType())) {
-                        System.out.println(o.get(i).getClass());
-                        System.out.println(transformPremetive(parameter.getType()));
-                        good = false;
+                        Flag = false;
                         break;
                     }
 
                 }
-                if (good)
+                if (Flag)
                     return  constructor.newInstance(o.toArray());
 
             }
 
 
-        return new Line(1,1,1,1);
+        return new Object();
     }
 
     public List<T> reader() throws Exception {
