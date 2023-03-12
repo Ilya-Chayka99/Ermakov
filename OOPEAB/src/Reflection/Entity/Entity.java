@@ -1,5 +1,9 @@
 package src.Reflection.Entity;
 
+import src.Reflection.Prim;
+import src.Reflection.ToString;
+
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.*;
 
@@ -13,7 +17,13 @@ public abstract class Entity{
             Arrays.stream(b.getDeclaredFields()).forEach(field -> {
                 field.setAccessible(true);
                 try {
-                    f.put(field.getName().toString(),field.get(this));
+                    ToString annotation =field.getDeclaredAnnotation(ToString.class);
+                    if(annotation!=null){
+                        if(annotation.value()!= Prim.NO){
+                            f.put(field.getName().toString(),field.get(this));
+                        }
+                    }
+                    else  f.put(field.getName().toString(),field.get(this));
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 }

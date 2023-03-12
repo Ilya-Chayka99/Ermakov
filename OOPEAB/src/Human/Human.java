@@ -3,9 +3,14 @@ package src.Human;
 
 import src.Name.Name;
 import src.Reflection.InspectObj.HumanTests;
+import src.Reflection.InspectObj.HumanTests1;
 import src.Reflection.InspectObj.Tests;
+import src.Reflection.ToString;
+import src.Reflection.Two;
+import src.Reflection.Validate;
 
-@Tests(HumanTests.class)
+
+@ToString
 public class Human {
    private Name name;
    private final Human father;
@@ -44,6 +49,10 @@ public class Human {
 
     public Name getName() {
         return name;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
     }
 
     @Override

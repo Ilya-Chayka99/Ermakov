@@ -5,12 +5,15 @@ import src.Line.Cirkyle;
 import src.Line.Line;
 import src.Name.Name;
 import src.Point.Point;
+import src.Reflection.Collect.Collect;
 import src.Reflection.Entity.A;
 import src.Reflection.Entity.B;
 import src.Reflection.InspectObj.HumanTests;
 import src.Reflection.InspectObj.InspectObj;
 import src.Reflection.InspectObj.Tests;
+import src.Reflection.Prim;
 import src.Reflection.Read.ObjectsReader;
+import src.Reflection.Reset.Reset;
 import src.bloc6.Exam.Codeable;
 import src.bloc6.Exam.Zadacha;
 import src.bloc6.School.Parent;
@@ -60,13 +63,20 @@ public class Start {
 //            System.out.println(a);
 //7.1.4
 
-            Human h =new Human("Stiv",300);
-            InspectObj.validate(h);
+//            Human h =new Human("Stiv",200);
+//            h.setName(null);
+//            InspectObj.validate(h);
 //
 //            ObjectsReader<Line> ob = new ObjectsReader<>("src/Reflection/Read/my.txt");
 //            Human h =new Human("Stiv",300);
 //            Human h1 =new Human("Stiv",300);
 //            System.out.println(ob.reader());
+
+
+           System.out.println(Collect.collect(Abs.class));
+//            Abs f = new Abs();
+//            Reset.reset(f);
+//            System.out.println(f);
 
 
 
