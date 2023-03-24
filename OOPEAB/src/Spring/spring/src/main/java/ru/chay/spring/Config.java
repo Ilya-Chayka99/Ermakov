@@ -199,7 +199,7 @@ public class Config {
             @Override
             public void update(EventStock event) {
                 if (event.getStockName().equals("ORCL") && event.getNewPrice() < 70) {
-                    System.out.println("Need to buy ORCL!");
+                    System.out.println("PRINTER: Need to buy ORCL! price: "+event.getNewPrice());
                 }
             }
         };
@@ -217,7 +217,7 @@ public class Config {
             @Override
             public void update(EventStock event) {
                 if (Arrays.stream(stocks).toList().contains(event.getStockName())) {
-                    System.out.println("Stock " + event.getStockName() + " price changed to " + event.getNewPrice());
+                    System.out.println("BOT: Stock " + event.getStockName() + " price changed to " + event.getNewPrice());
                 }
             }
         };
