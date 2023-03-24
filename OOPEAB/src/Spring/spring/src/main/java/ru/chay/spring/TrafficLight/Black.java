@@ -5,14 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Black implements Color{
-
-    private Color black;
-
     @Override
     public Color next() {
         return this;
     }
-
     @Override
     public String toString() {
         return "Black";

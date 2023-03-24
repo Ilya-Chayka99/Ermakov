@@ -41,7 +41,7 @@ public class Application {
 ////		System.out.println(context.getBean("hardToSay"));
 //		System.out.println(context.getBean("topFeedback"));
 //		System.out.println("---------------- 8.2.4");
-//		System.out.println(context.getBean("getSt"));
+//		System.out.println(context.getBean("getSt1"));
 //		System.out.println("---------------- 8.2.5");
 //		FabricaStudent fabricaStudent =(FabricaStudent) context.getBean("fabricaStudent");
 //		System.out.println(fabricaStudent.createStudent("Rom"));
@@ -49,12 +49,12 @@ public class Application {
 //		TrafficLight trafficLight = (TrafficLight) context.getBean("trafficLight");
 //		trafficLight.next();
 //		trafficLight.next();
-//		trafficLight.on(context.getBean("red", Red.class));
+//		trafficLight.on();
 //		trafficLight.next();
 //		trafficLight.next();
 //		trafficLight.next();
 //		trafficLight.next();
-//		trafficLight.off(context.getBean("black", Black.class));
+//		trafficLight.off();
 //		trafficLight.next();
 //		trafficLight.next();
 //		System.out.println(context.getBean("range"));

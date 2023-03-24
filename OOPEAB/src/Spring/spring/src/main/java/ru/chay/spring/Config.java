@@ -21,6 +21,7 @@ import java.util.function.Predicate;
 @Configuration
 public class Config {
     @Bean
+    @Qualifier("hello")
     String hello(){
         return "Hello world";
     }
@@ -73,7 +74,7 @@ public class Config {
     }
     @Bean
     @Scope("prototype")
-    Student getSt(@Qualifier("Stud") Predicate<Integer> rule){
+    Student getSt1(@Qualifier("Stud") Predicate<Integer> rule){
         return new Student("DR", Arrays.asList(1,4,8,4,99,3,5),rule);
     }
     @Bean

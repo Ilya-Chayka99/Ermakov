@@ -14,6 +14,7 @@ public class Streaming {
         this.dataWriter = dataWriter;
         this.list = list;
     }
+
     public void compile() throws IOException {
         String tmp=dataReader.reader();
         for(Process<String> p:list){
