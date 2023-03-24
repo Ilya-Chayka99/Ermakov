@@ -1,16 +1,16 @@
 package ru.chay.spring.TrafficLight;
 
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
-@Component
 public class TrafficLight {
     private Color color;
-    public TrafficLight(Color red) {
-        this.color=red;
+    public TrafficLight(Color colorl) {
+        this.color=colorl;
     }
-    public void on(){
 
+    public void on(Color red){
+        color=red;
+    }
+    public void off(Color black){
+        color=black;
     }
     public void next(){
         System.out.println(color);

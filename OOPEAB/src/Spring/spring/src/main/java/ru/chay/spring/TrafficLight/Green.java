@@ -5,8 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Green implements Color{
-    @Autowired
+
     private Color yellowB;
+    @Autowired
+    public void setYellowB(Color yellowB) {
+        this.yellowB = yellowB;
+    }
 
     @Override
     public Color next() {

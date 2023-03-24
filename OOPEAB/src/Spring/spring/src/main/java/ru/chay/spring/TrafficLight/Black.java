@@ -1,24 +1,20 @@
 package ru.chay.spring.TrafficLight;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Yellow implements Color{
+public class Black implements Color{
 
-    private Color green;
-    @Autowired
-    public void setGreen(Color green) {
-        this.green = green;
-    }
+    private Color black;
 
     @Override
     public Color next() {
-        return green;
+        return this;
     }
+
     @Override
     public String toString() {
-        return "Yellow";
+        return "Black";
     }
 }

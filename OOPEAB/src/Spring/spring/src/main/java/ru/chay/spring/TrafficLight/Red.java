@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Red implements Color{
-    @Autowired
+
     private Color yellow;
+    @Autowired
+    public void setYellow(Color yellow) {
+        this.yellow = yellow;
+    }
 
     public Red() {
     }
