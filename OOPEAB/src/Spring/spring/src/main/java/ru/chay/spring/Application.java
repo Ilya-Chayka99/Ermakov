@@ -62,12 +62,14 @@ public class Application {
 //		Streaming streaming =context.getBean("streaming", Streaming.class);
 //		streaming.compile();
 
-		ManageStocks manageStocks = context.getBean("manageStocks", ManageStocks.class);
-		manageStocks.registerStock(new Stock("ORCL",500),new Stock("TESLA",300));
-		manageStocks.setPrice("ORCL",30);
-		manageStocks.setPrice("TESLA",50);
-		manageStocks.setPrice("ORCL",300);
-		manageStocks.setPrice("ORCL",1);
+//		ManageStocks manageStocks = context.getBean("manageStocks", ManageStocks.class);
+//		manageStocks.registerStock(new Stock("ORCL",500),new Stock("TESLA",300));
+//		manageStocks.setPrice("ORCL",30);
+//		manageStocks.setPrice("TESLA",50);
+//		manageStocks.setPrice("ORCL",300);
+//		manageStocks.setPrice("ORCL",1);
+
+		System.out.println(context.getBean("getSt1"));
 
 	}
 

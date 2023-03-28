@@ -26,6 +26,11 @@ public class Config {
         return "Hello world";
     }
     @Bean
+    String post(){
+        String name=null;
+        return name;
+    }
+    @Bean
     @Scope("prototype")
     int random(Rand rand){
         return rand.rand();
@@ -73,9 +78,9 @@ public class Config {
         return f;
     }
     @Bean
-    @Scope("prototype")
+//    @Scope("prototype")
     Student getSt1(@Qualifier("Stud") Predicate<Integer> rule){
-        return new Student("DR", Arrays.asList(1,4,8,4,99,3,5),rule);
+        return new Student(null, Arrays.asList(1,4,8,4,99,3,5),rule);
     }
     @Bean
     @Scope("prototype")
