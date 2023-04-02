@@ -1,4 +1,5 @@
-package src.Reflection;
+package ru.chay.spring;
+
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

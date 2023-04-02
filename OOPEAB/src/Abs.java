@@ -9,7 +9,7 @@ import src.Reflection.Two;
 
 import java.util.ArrayList;
 import java.util.List;
-@Default(Def.class)
+
 public class Abs {
 
     final int x=5;

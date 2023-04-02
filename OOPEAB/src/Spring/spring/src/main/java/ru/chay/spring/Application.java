@@ -7,9 +7,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import ru.chay.spring.Stock.ManageStocks;
 import ru.chay.spring.Stock.Stock;
 import ru.chay.spring.Streaming.Streaming;
-import ru.chay.spring.TrafficLight.Black;
-import ru.chay.spring.TrafficLight.Red;
-import ru.chay.spring.TrafficLight.TrafficLight;
+import ru.chay.spring.TrafficLight.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -23,7 +21,7 @@ public class Application {
 
 		//SpringApplication.run(Application.class, args);
 		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
-////		System.out.println(context.getBean("hello"));
+//////		System.out.println(context.getBean("hello"));
 //		System.out.println(context.getBean("random"));
 //		System.out.println(context.getBean("random"));
 //		System.out.println(context.getBean("random"));
@@ -37,6 +35,7 @@ public class Application {
 //		System.out.println(context.getBean("random"));
 //		System.out.println(context.getBean("random"));
 //		System.out.println(context.getBean("random"));
+//		System.out.println(context.getBean("rand"));
 //		System.out.println(context.getBean("date"));
 ////		System.out.println(context.getBean("hardToSay"));
 //		System.out.println(context.getBean("topFeedback"));
@@ -69,7 +68,11 @@ public class Application {
 //		manageStocks.setPrice("ORCL",300);
 //		manageStocks.setPrice("ORCL",1);
 
-		System.out.println(context.getBean("getSt1"));
+		System.out.println(context.getBean("green"));
+		System.out.println(context.getBean("green"));
+		System.out.println(context.getBean("green"));
+		System.out.println(context.getBean("green"));
+//		System.out.println(context.getBean("getSt1"));
 
 	}
 

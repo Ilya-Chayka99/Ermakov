@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Random;
 
 @Component
+@Cahe
 public class Rand {
     private int min,max;
     List<Integer> list =new ArrayList<>();
@@ -21,6 +22,7 @@ public class Rand {
     public void setMax(int max) {
         this.max = max;
     }
+
 
     public int rand()
     {
@@ -38,5 +40,10 @@ public class Rand {
                 }
             }
 
+    }
+
+    @Override
+    public String toString() {
+        return rand()+"";
     }
 }

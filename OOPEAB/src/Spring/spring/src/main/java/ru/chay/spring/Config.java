@@ -25,11 +25,7 @@ public class Config {
     String hello(){
         return "Hello world";
     }
-    @Bean
-    String post(){
-        String name=null;
-        return name;
-    }
+
     @Bean
     @Scope("prototype")
     int random(Rand rand){
