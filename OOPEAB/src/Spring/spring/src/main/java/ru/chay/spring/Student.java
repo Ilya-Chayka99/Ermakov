@@ -16,9 +16,8 @@ public class Student {
     private Predicate<Integer> rule;
     private String zz="c";
 
-    public Student(String name,Predicate<Integer> range) {
+    public Student(String name) {
         this.name = name;
-        this.rule = range;
     }
 
     public Student(String name, List<Integer> rang, Predicate<Integer> range) {
@@ -26,7 +25,9 @@ public class Student {
         this.rule = range;
         setRang(rang);
     }
-
+    public int getAvg(){
+        return rang.stream().reduce(0, Integer::sum)/rang.size();
+    }
     public void setRang(Integer ... rangg) {
         setRang(Arrays.asList(rangg));
     }

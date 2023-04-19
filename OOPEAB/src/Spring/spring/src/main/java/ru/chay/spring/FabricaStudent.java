@@ -15,7 +15,7 @@ public class FabricaStudent {
     public Student createStudent(String name , List<Integer> arr){
         return new Student(name,arr,rule);
     }
-    public Student createStudent(String name){
-        return new Student(name,rule);
-    }
+//    public Student createStudent(String name){
+//        return new Student(name,rule);
+//    }
 }

@@ -11,8 +11,9 @@ import ru.chay.spring.TrafficLight.*;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class Application {
@@ -20,60 +21,147 @@ public class Application {
 	public static void main(String[] args) throws IOException {
 
 		//SpringApplication.run(Application.class, args);
-		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
-//////		System.out.println(context.getBean("hello"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("random"));
-//		System.out.println(context.getBean("rand"));
-//		System.out.println(context.getBean("date"));
-////		System.out.println(context.getBean("hardToSay"));
-//		System.out.println(context.getBean("topFeedback"));
-//		System.out.println("---------------- 8.2.4");
-//		System.out.println(context.getBean("getSt1"));
-//		System.out.println("---------------- 8.2.5");
-//		FabricaStudent fabricaStudent =(FabricaStudent) context.getBean("fabricaStudent");
-//		System.out.println(fabricaStudent.createStudent("Rom"));
-//		System.out.println(fabricaStudent.createStudent("Rom2", List.of(1,2,3,4,5,67,3,4)));
-//		TrafficLight trafficLight = (TrafficLight) context.getBean("trafficLight");
-//		trafficLight.next();
-//		trafficLight.next();
-//		trafficLight.on();
-//		trafficLight.next();
-//		trafficLight.next();
-//		trafficLight.next();
-//		trafficLight.next();
-//		trafficLight.off();
-//		trafficLight.next();
-//		trafficLight.next();
-//		System.out.println(context.getBean("range"));
+//		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
 
-//		Streaming streaming =context.getBean("streaming", Streaming.class);
-//		streaming.compile();
+//		Stream.generate(()->2)
+//				.limit(4)
+//				.forEach(System.out::println);
 
-//		ManageStocks manageStocks = context.getBean("manageStocks", ManageStocks.class);
-//		manageStocks.registerStock(new Stock("ORCL",500),new Stock("TESLA",300));
-//		manageStocks.setPrice("ORCL",30);
-//		manageStocks.setPrice("TESLA",50);
-//		manageStocks.setPrice("ORCL",300);
-//		manageStocks.setPrice("ORCL",1);
+//		Stream.of("Privet   ","Vasa  ","zz ","upt","yy")
+//				.map(x->x.trim())
+//				.collect(Collectors.groupingBy(String::length))
+//				.entrySet()
+//				.forEach(System.out::println);
+//		Student s1 = new Student("Vasa");
+//		Student s2 = new Student("Katia");
+//		Student s3 = new Student("Ilya");
+//		Student s4 = new Student("Oleg");
+//		Student s5 = new Student("Petya");
+//		s1.setRang(4,5,5,5,5);
+//		s2.setRang(2,2,3,5);
+//		s3.setRang(5,5,5,5);
+//		s4.setRang(4,4,4,4,4);
+//		s5.setRang(4,5,5,5,5,2,2,2);
+//
+//		Stream.of(s1,s2,s3,s4,s5)
+//				.collect(Collectors.groupingBy(Student::getAvg))
+//				.entrySet()
+//				.forEach(System.out::println);
 
-		System.out.println(context.getBean("green"));
-		System.out.println(context.getBean("green"));
-		System.out.println(context.getBean("green"));
-		System.out.println(context.getBean("green"));
-//		System.out.println(context.getBean("getSt1"));
+
+		List<Integer> k = Stream.of(1,3,5,2,9,8)
+				.filter(x->x%2==0)
+				.map(x->x/2)
+//				.reduce(0, Integer::sum)
+				.collect(Collectors.toList());
+		System.out.println(k);
+
+		long z= Stream.of(1,5,-6,-5,-1)
+				.filter(x->x>=0)
+				.count();
+		System.out.println(z);
+
+//		int c= Stream.of("1","-3","-7","20")
+//				.map(Integer::parseInt)
+//				.map(Math::abs)
+//				.max()
+//				.orElse(0);
+
+		String ss= Stream.of("qwe","aa","abc")
+				.filter(x->x.contains("a"))
+				.collect(Collectors.joining(" ","<",">"));
+		System.out.println(ss);
+
+		long u= Stream.of("qwe","aa","abc")
+				.flatMapToInt(String::chars)
+				.filter(x->x=='a')
+				.count();
+		System.out.println(u);
+
+		System.out.println(Stream.of("qwe","aa","abc")
+				.collect(Collectors.groupingBy(x->x.charAt(0))));
+
+
+		System.out.println( Stream.of("qwe","aa","abc",null)
+				.filter(Objects::nonNull)
+				.flatMapToInt(String::chars)
+				.distinct()
+				.count()
+		);
+
+		System.out.println( Stream.of("qwe ggr","aa","abc",null)
+				.filter(Objects::nonNull)
+				.map(x->x.split(" "))
+				.flatMap(Arrays::stream)
+				.filter(x->x.length()>=3)
+				.count()
+
+
+				точки
+				уникальные
+				сортировка
+				в одну ломанную
+
+		);
+
 
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 		- Пустой стрим: Stream.empty() // Stream<String>
+//		- Стрим из List: list.stream() // Stream<String>
+//		- Стрим из Map: map.entrySet().stream() // Stream<Map.Entry<String, String>>
+//		- Стрим из массива: Arrays.stream(array) // Stream<String>
+//		- Стрим из указанных элементов: Stream.of("a", "b", "c") // Stream<String>
+
+
+//	List<Integer> list = Stream.of(1, 2, 3)
+//			.collect(Collectors.toList());
+//// list: [1, 2, 3]
+//
+//	String s = Stream.of(1, 2, 3)
+//			.map(String::valueOf)
+//			.collect(Collectors.joining("-", "<", ">"));
+//// s: "<1-2-3>"
+
+
+
+
+
+
