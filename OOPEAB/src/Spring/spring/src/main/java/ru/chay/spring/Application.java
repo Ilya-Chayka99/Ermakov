@@ -9,8 +9,10 @@ import ru.chay.spring.Stock.Stock;
 import ru.chay.spring.Streaming.Streaming;
 import ru.chay.spring.TrafficLight.*;
 
+import javax.xml.transform.Result;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.sql.*;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -49,17 +51,17 @@ public class Application {
 //				.forEach(System.out::println);
 
 
-		List<Integer> k = Stream.of(1,3,5,2,9,8)
-				.filter(x->x%2==0)
-				.map(x->x/2)
-//				.reduce(0, Integer::sum)
-				.collect(Collectors.toList());
-		System.out.println(k);
-
-		long z= Stream.of(1,5,-6,-5,-1)
-				.filter(x->x>=0)
-				.count();
-		System.out.println(z);
+//		List<Integer> k = Stream.of(1,3,5,2,9,8)
+//				.filter(x->x%2==0)
+//				.map(x->x/2)
+////				.reduce(0, Integer::sum)
+//				.collect(Collectors.toList());
+//		System.out.println(k);
+//
+//		long z= Stream.of(1,5,-6,-5,-1)
+//				.filter(x->x>=0)
+//				.count();
+//		System.out.println(z);
 
 //		int c= Stream.of("1","-3","-7","20")
 //				.map(Integer::parseInt)
@@ -67,42 +69,80 @@ public class Application {
 //				.max()
 //				.orElse(0);
 
-		String ss= Stream.of("qwe","aa","abc")
-				.filter(x->x.contains("a"))
-				.collect(Collectors.joining(" ","<",">"));
-		System.out.println(ss);
+//		String ss= Stream.of("qwe","aa","abc")
+//				.filter(x->x.contains("a"))
+//				.collect(Collectors.joining(" ","<",">"));
+//		System.out.println(ss);
+//
+//		long u= Stream.of("qwe","aa","abc")
+//				.flatMapToInt(String::chars)
+//				.filter(x->x=='a')
+//				.count();
+//		System.out.println(u);
+//
+//		System.out.println(Stream.of("qwe","aa","abc")
+//				.collect(Collectors.groupingBy(x->x.charAt(0))));
+//
+//
+//		System.out.println( Stream.of("qwe","aa","abc",null)
+//				.filter(Objects::nonNull)
+//				.flatMapToInt(String::chars)
+//				.distinct()
+//				.count()
+//		);
+//
+//		System.out.println( Stream.of("qwe ggr","aa","abc",null)
+//				.filter(Objects::nonNull)
+//				.map(x->x.split(" "))
+//				.flatMap(Arrays::stream)
+//				.filter(x->x.length()>=3)
+//				.count()
+//
+//
+////				точки
+////				уникальные
+////				сортировка
+////				в одну ломанную
+//
+//		);
 
-		long u= Stream.of("qwe","aa","abc")
-				.flatMapToInt(String::chars)
-				.filter(x->x=='a')
-				.count();
-		System.out.println(u);
-
-		System.out.println(Stream.of("qwe","aa","abc")
-				.collect(Collectors.groupingBy(x->x.charAt(0))));
-
-
-		System.out.println( Stream.of("qwe","aa","abc",null)
-				.filter(Objects::nonNull)
-				.flatMapToInt(String::chars)
+		PoliLine pp= Stream.of(new Point(99,6),new Point(1,3),new Point(1,3),new Point(6,99))
 				.distinct()
-				.count()
-		);
+				.sorted(new Comparator<Point>() {
+					@Override
+					public int compare(Point o1, Point o2) {
+						return o1.x > o2.x? 1 : 0;
+					}
+				})
+				.reduce(new PoliLine(),PoliLine::addPoliLinePoint,PoliLine::addPoliLinePoint);
+		System.out.println(pp);
 
-		System.out.println( Stream.of("qwe ggr","aa","abc",null)
-				.filter(Objects::nonNull)
-				.map(x->x.split(" "))
-				.flatMap(Arrays::stream)
-				.filter(x->x.length()>=3)
-				.count()
+
+		try {
+			Class.forName("org.postgresql.Driver");
+			Connection connection = DriverManager.getConnection(
+					"jdbc:postgresql://localhost:5432/Airline".concat("?" + "currentSchema=public"),
+					"ilya", "123e123e");
+
+			Statement st = connection.createStatement();
+
+			ResultSet res = st.executeQuery("SELECT * FROM users");
+			PreparedStatement preparedStatement = connection.prepareStatement(
+					"SELECT users.username as user , department.name as dep FROM users " +
+							"join department on department.id = users.depart");
+			ResultSet res1 = preparedStatement.executeQuery();
+//			preparedStatement.setString(1, "11");
+			res.next();
+			while (res1.next()){
+				System.out.println(res1.getString("user")+" "+res1.getString("dep"));
+			}
+//			System.out.println(res.getString(2));
 
 
-				точки
-				уникальные
-				сортировка
-				в одну ломанную
-
-		);
+			connection.close();
+		} catch (Exception ignored){
+			ignored.printStackTrace();
+		}
 
 
 	}
