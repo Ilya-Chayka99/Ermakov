@@ -57,7 +57,7 @@ public class PoliLine{
         return Objects.hash(points);
     }
 
-    public PoliLine addPoliLinePoint(PoliLine poliLine) {
+    public PoliLine getPoliLine(PoliLine poliLine) {
         this.points=poliLine.points;
         return this;
     }

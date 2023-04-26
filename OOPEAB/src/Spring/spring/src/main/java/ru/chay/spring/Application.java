@@ -1,5 +1,6 @@
 package ru.chay.spring;
 
+import lombok.SneakyThrows;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -19,7 +20,7 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class Application {
-
+	@SneakyThrows
 	public static void main(String[] args) throws IOException {
 
 		//SpringApplication.run(Application.class, args);
@@ -106,42 +107,50 @@ public class Application {
 //
 //		);
 
-		PoliLine pp= Stream.of(new Point(99,6),new Point(1,3),new Point(1,3),new Point(6,99))
-				.distinct()
-				.sorted(new Comparator<Point>() {
-					@Override
-					public int compare(Point o1, Point o2) {
-						return o1.x > o2.x? 1 : 0;
-					}
-				})
-				.reduce(new PoliLine(),PoliLine::addPoliLinePoint,PoliLine::addPoliLinePoint);
-		System.out.println(pp);
+//		PoliLine pp= Stream.of(new Point(99,6),new Point(1,3),new Point(1,3),new Point(6,99))
+//				.sorted((o1, o2) ->o1.y > o2.y? 1 : -1)
+//				.distinct()
+//				.reduce(new PoliLine(),PoliLine::addPoliLinePoint,PoliLine::getPoliLine);
+//		System.out.println(pp);
 
 
-		try {
-			Class.forName("org.postgresql.Driver");
-			Connection connection = DriverManager.getConnection(
-					"jdbc:postgresql://localhost:5432/Airline".concat("?" + "currentSchema=public"),
-					"ilya", "123e123e");
+		System.out.println(selectEmploeByDepartment("Zara"));
+		System.out.println(selectEmploeByDepartment("Inpit"));
 
-			Statement st = connection.createStatement();
+	}
 
-			ResultSet res = st.executeQuery("SELECT * FROM users");
+	@SneakyThrows
+	public static List<Emploe> selectEmploeByDepartment(String dep){
+		List<Emploe> list=new ArrayList<>();
+		Class.forName("org.postgresql.Driver");
+		try(Connection connection = DriverManager.getConnection(
+				"jdbc:postgresql://localhost:5432/Airline".concat("?" + "currentSchema=public"),
+				"ilya", "123e123e")) {
+
+//			Statement st = connection.createStatement();
+
+//			st.execute("INSERT INTO users(username, depart) values ('aa',1)");
 			PreparedStatement preparedStatement = connection.prepareStatement(
-					"SELECT users.username as user , department.name as dep FROM users " +
-							"join department on department.id = users.depart");
+					"SELECT users.id as id, users.username as user , department.name as dep FROM users " +
+							"join department on department.id = users.depart " +
+							"where department.name=?");
+			preparedStatement.setString(1, dep);
 			ResultSet res1 = preparedStatement.executeQuery();
-//			preparedStatement.setString(1, "11");
-			res.next();
+//			res.next();
 			while (res1.next()){
-				System.out.println(res1.getString("user")+" "+res1.getString("dep"));
+				Emploe e = new Emploe();
+				e.setName(res1.getString("user"));
+				e.setId(Integer.parseInt(res1.getString("id")));
+				e.setDep(res1.getString("dep"));
+//				System.out.println(res1.getString("id")+" "+res1.getString("dep"));
+				list.add(e);
 			}
+			return list;
 //			System.out.println(res.getString(2));
+// <T> List<T> select(Class<T>) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
-
-			connection.close();
 		} catch (Exception ignored){
-			ignored.printStackTrace();
+			throw new RuntimeException(ignored);
 		}
 
 
