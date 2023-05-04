@@ -1,21 +1,20 @@
 package ru.chay.spring;
 
 import lombok.Data;
-import lombok.ToString;
-
 @Data
 @Table("users")
-public class Emploe {
+
+public class Users {
     private String username;
     private Long id;
     private Integer depart;
 
-    public Emploe() {
+    public Users() {
     }
 
     @Override
     public String toString() {
-        return "\nEmploe{" +
+        return "\nUsers{" +
                 "username='" + username + '\'' +
                 ", id=" + id +
                 ", depart=" + depart +

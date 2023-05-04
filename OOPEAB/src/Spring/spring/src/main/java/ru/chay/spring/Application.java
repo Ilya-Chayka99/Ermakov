@@ -1,30 +1,40 @@
 package ru.chay.spring;
 
 import lombok.SneakyThrows;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import ru.chay.spring.Stock.ManageStocks;
-import ru.chay.spring.Stock.Stock;
-import ru.chay.spring.Streaming.Streaming;
-import ru.chay.spring.TrafficLight.*;
 
-import javax.xml.transform.Result;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.sql.*;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 @SpringBootApplication
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class Application {
 	@SneakyThrows
 	public static void main(String[] args) throws IOException {
+		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
 
-		//SpringApplication.run(Application.class, args);
-//		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
+		Repo repo= context.getBean(Repo.class);
+		System.out.println(repo.select1(Emploe.class));
+
+
+
+
+
+
+
+
+
+
+
+//		Repositor repositor = context.getBean(Repositor.class);
+//		System.out.println(repositor.findAll());
+//		System.out.println(repositor.countByUsername());
+
+
+
+//		SpringApplication.run(Application.class, args);
 
 //		Stream.generate(()->2)
 //				.limit(4)
@@ -113,48 +123,8 @@ public class Application {
 //				.reduce(new PoliLine(),PoliLine::addPoliLinePoint,PoliLine::getPoliLine);
 //		System.out.println(pp);
 
-
-		System.out.println(selectEmploeByDepartment("Zara"));
-		System.out.println(selectEmploeByDepartment("Inpit"));
-
 	}
 
-	@SneakyThrows
-	public static List<Emploe> selectEmploeByDepartment(String dep){
-		List<Emploe> list=new ArrayList<>();
-		Class.forName("org.postgresql.Driver");
-		try(Connection connection = DriverManager.getConnection(
-				"jdbc:postgresql://localhost:5432/Airline".concat("?" + "currentSchema=public"),
-				"ilya", "123e123e")) {
-
-//			Statement st = connection.createStatement();
-
-//			st.execute("INSERT INTO users(username, depart) values ('aa',1)");
-			PreparedStatement preparedStatement = connection.prepareStatement(
-					"SELECT users.id as id, users.username as user , department.name as dep FROM users " +
-							"join department on department.id = users.depart " +
-							"where department.name=?");
-			preparedStatement.setString(1, dep);
-			ResultSet res1 = preparedStatement.executeQuery();
-//			res.next();
-			while (res1.next()){
-				Emploe e = new Emploe();
-				e.setName(res1.getString("user"));
-				e.setId(Integer.parseInt(res1.getString("id")));
-				e.setDep(res1.getString("dep"));
-//				System.out.println(res1.getString("id")+" "+res1.getString("dep"));
-				list.add(e);
-			}
-			return list;
-//			System.out.println(res.getString(2));
-// <T> List<T> select(Class<T>) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
-
-		} catch (Exception ignored){
-			throw new RuntimeException(ignored);
-		}
-
-
-	}
 
 }
 
