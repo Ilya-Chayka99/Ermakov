@@ -15,8 +15,8 @@ public class Application {
 	public static void main(String[] args) throws IOException {
 		ApplicationContext context = new AnnotationConfigApplicationContext("ru.chay.spring");
 
-		Repo repo= context.getBean(Repo.class);
-		System.out.println(repo.select1(Emploe.class));
+		Repo repo= context.getBean(ReposSel.class);
+		System.out.println(repo.select1());
 
 
 
